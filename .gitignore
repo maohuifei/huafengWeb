@@ -1,0 +1,44 @@
+# 依赖项
+node_modules
+.pnp
+.pnp.js
+
+# 构建输出
+dist
+dist-ssr
+coverage
+build
+*.local
+
+# 日志
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 缓存
+.cache
+
+# 测试
+/cypress/videos/
+/cypress/screenshots/
+
+# 编辑器目录和文件
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# TypeScript
+*.tsbuildinfo
+
+# 敏感数据文件
+**/sensitiveData.ts
