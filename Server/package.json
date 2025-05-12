@@ -1,0 +1,47 @@
+{
+  "name": "serverdir",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.ts",
+    "build": "tsc",
+    "serve": "node dist/app.js",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate -d src/data-source.ts src/migrations/InitialMigration",
+    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/data-source.ts",
+    "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/data-source.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/koa-jwt": "^3.3.0",
+    "@types/koa2-cors": "^2.0.5",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "koa": "^2.15.3",
+    "koa-body": "^6.0.1",
+    "koa-json-error": "^3.1.2",
+    "koa-jwt": "^4.0.4",
+    "koa-router": "^12.0.1",
+    "koa2-cors": "^2.0.6",
+    "mysql2": "^3.11.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/joi": "^17.2.3",
+    "@types/koa": "^2.15.0",
+    "@types/koa-json-error": "^3.1.6",
+    "@types/koa-router": "^7.4.8",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                        // 设置目标版本
+    "module": "commonjs",                    // 使用 CommonJS 模块
+    "experimentalDecorators": true,  // 启用装饰器
+    "emitDecoratorMetadata": true,   // 生成装饰器元数据
+    "outDir": "./huafengserver/src",                      // 指定输出目录
+    "rootDir": "./src",                      // 指定源文件夹（通常是 src）
+    "esModuleInterop": true,                 // 启用 esModuleInterop
+    "strict": true,                          // 启用严格模式
+    "skipLibCheck": true,                    // 跳过库文件检查
+    "forceConsistentCasingInFileNames": true, // 强制文件名一致性
+    "moduleResolution": "node"               // 使用 Node.js 风格的模块解析
+  },
+  "include": ["src/**/*.ts"],               // 指定 TypeScript 源文件所在目录
+  "exclude": ["node_modules"]                // 排除 node_modules 目录
+}

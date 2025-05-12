@@ -1,0 +1,132 @@
+/* 响应式设计断点 */
+:root {
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* 移动设备 - 小于576px */
+@media (max-width: 575.98px) {
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  /* 导航栏适配 */
+  .nav-menu {
+    width: 100%;
+  }
+  
+  /* 表格适配 */
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  /* 表单适配 */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+  }
+}
+
+/* 平板设备 - 576px到991px */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  
+  /* 侧边栏适配 */
+  .sidebar {
+    width: 200px;
+  }
+  
+  /* 内容区适配 */
+  .main-content {
+    margin-left: 200px;
+  }
+}
+
+/* 桌面设备 - 992px及以上 */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  /* 大屏幕布局优化 */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* 通用响应式工具类 */
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+@media (max-width: 575.98px) {
+  .d-sm-none {
+    display: none !important;
+  }
+  .d-sm-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .d-md-none {
+    display: none !important;
+  }
+  .d-md-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .d-lg-none {
+    display: none !important;
+  }
+  .d-lg-block {
+    display: block !important;
+  }
+}
+
+/* 响应式字体大小 */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 575.98px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* 响应式间距 */
+.responsive-spacing {
+  padding: 2rem;
+}
+
+@media (max-width: 575.98px) {
+  .responsive-spacing {
+    padding: 1rem;
+  }
+}
+
+/* 响应式图片 */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+} 

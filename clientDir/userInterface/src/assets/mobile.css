@@ -1,0 +1,302 @@
+/* 移动端样式覆盖 */
+@media (max-width: 575.98px) {
+    /* 返回按钮移动端样式 */
+    .back_btn {
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .back_btn::before {
+        content: "←";
+    }
+    
+    .back_btn span {
+        display: none;
+    }
+
+    /* 目录按钮移动端样式 */
+    .particulars_box .catalogue {
+        position: fixed !important;
+        top: 80px !important;
+        right: 40px !important;
+        z-index: 1000 !important;
+        margin: 0 !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    /* 目录收起状态 */
+    .particulars_box .catalogue:not(.expanded) {
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 50% !important;
+        border: none !important;
+        background-color: white !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .particulars_box .catalogue:not(.expanded) .toc-header {
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+        background: none !important;
+    }
+
+    .particulars_box .catalogue:not(.expanded) .toc-title,
+    .particulars_box .catalogue:not(.expanded) .toc-toggle {
+        display: none !important;
+    }
+
+    .particulars_box .catalogue:not(.expanded) .toc-header::after {
+        content: "≡" !important;
+        font-size: 18px !important;
+        color: var(--systemColor) !important;
+        line-height: 1 !important;
+    }
+
+    /* 目录展开状态 */
+    .particulars_box .catalogue.expanded {
+        width: 80vw !important;
+        max-height: 70vh !important;
+        border-radius: 12px !important;
+        border: 1px solid #e0e0e0 !important;
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+        backdrop-filter: blur(4px) !important;
+    }
+
+    .particulars_box .catalogue.expanded .toc-header {
+        padding: 12px 16px !important;
+        border-bottom: 1px solid #eee !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    .particulars_box .catalogue.expanded .toc-content {
+        padding: 12px !important;
+        max-height: calc(70vh - 45px) !important;
+        overflow-y: auto !important;
+    }
+
+    .particulars_box .catalogue.expanded .toc-items {
+        padding: 0 !important;
+    }
+
+    .particulars_box .catalogue.expanded .toc-item {
+        padding: 8px 0 !important;
+    }
+
+    /* 后台管理系统移动端样式 */
+    /* 布局结构 */
+    #app {
+        min-width: 0 !important;
+    }
+
+    .el-container {
+        flex-direction: column !important;
+    }
+
+    .el-aside {
+        width: 100% !important;
+        min-height: auto !important;
+    }
+
+    .el-main {
+        padding: 10px !important;
+    }
+
+    /* 导航菜单 */
+    .el-menu {
+        border-right: none !important;
+    }
+
+    .el-menu-item {
+        height: 50px !important;
+        line-height: 50px !important;
+        padding: 0 15px !important;
+    }
+
+    .el-menu-item [class^="el-icon"] {
+        margin-right: 10px !important;
+    }
+
+    /* 头部样式 */
+    .header {
+        padding: 10px !important;
+        height: auto !important;
+        flex-wrap: wrap !important;
+    }
+
+    .header h2 {
+        font-size: 1.2rem !important;
+        margin: 0 !important;
+    }
+
+    .logout {
+        padding: 6px 12px !important;
+        height: 32px !important;
+        font-size: 14px !important;
+    }
+
+    /* 内容区域 */
+    .content {
+        padding: 10px !important;
+    }
+
+    /* 表单样式 */
+    .el-form {
+        padding: 15px !important;
+    }
+
+    .el-form-item {
+        margin-bottom: 15px !important;
+    }
+
+    .el-form-item__label {
+        float: none !important;
+        display: block !important;
+        text-align: left !important;
+        padding-bottom: 8px !important;
+    }
+
+    .el-form-item__content {
+        margin-left: 0 !important;
+    }
+
+    /* 按钮样式 */
+    .el-button {
+        width: 100% !important;
+        margin: 5px 0 !important;
+    }
+
+    .el-button + .el-button {
+        margin-left: 0 !important;
+    }
+
+    /* 卡片样式 */
+    .el-card {
+        margin-bottom: 15px !important;
+    }
+
+    .el-card__header {
+        padding: 15px !important;
+    }
+
+    .el-card__body {
+        padding: 15px !important;
+    }
+
+    /* 标题样式 */
+    h2, h3 {
+        font-size: 1.2rem !important;
+        margin: 10px 0 !important;
+    }
+
+    /* 表格样式 */
+    .el-table {
+        width: 100% !important;
+        font-size: 14px !important;
+    }
+
+    .el-table td, .el-table th {
+        padding: 8px !important;
+    }
+
+    /* 分页器 */
+    .el-pagination {
+        text-align: center !important;
+        margin-top: 15px !important;
+        white-space: normal !important;
+        flex-wrap: wrap !important;
+    }
+
+    .el-pagination > * {
+        margin: 5px !important;
+    }
+
+    /* 弹窗样式 */
+    .el-dialog {
+        width: 90% !important;
+        margin: 5vh auto !important;
+    }
+
+    .el-dialog__header {
+        padding: 15px !important;
+    }
+
+    .el-dialog__body {
+        padding: 15px !important;
+        max-height: 60vh !important;
+        overflow-y: auto !important;
+    }
+
+    .el-dialog__footer {
+        padding: 15px !important;
+    }
+
+    /* 输入框和选择器 */
+    .el-input, .el-select {
+        width: 100% !important;
+    }
+
+    .el-input__inner {
+        height: 36px !important;
+        line-height: 36px !important;
+    }
+
+    /* 文本编辑器 */
+    .editor-container {
+        height: auto !important;
+        min-height: 200px !important;
+    }
+
+    /* 图片上传 */
+    .el-upload {
+        width: 100% !important;
+    }
+
+    .el-upload-dragger {
+        width: 100% !important;
+    }
+}
+
+/* PC端样式恢复 */
+@media (min-width: 576px) {
+    .particulars_box .catalogue {
+        position: fixed;
+        right: 20px;
+        top: 80px;
+        width: 250px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .particulars_box .catalogue .toc-header {
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        background-color: white;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .particulars_box .catalogue .toc-content {
+        padding: 20px;
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+    }
+} 
