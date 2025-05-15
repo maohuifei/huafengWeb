@@ -16,7 +16,7 @@ const router = createRouter({
     {
       path: '/',
       name: '首页',
-      component: () => import('@/views/HomeView.vue')  // 懒加载首页组件
+      component: () => import('@/views/HomeView.vue'),  // 懒加载首页组件
     },
     // 文章列表路由
     {

@@ -71,8 +71,11 @@
   </div>
 
   <div class="foot_box">
-    <p>© 2025 huafeng 版权所有</p>
-    <p>备案号：鲁ICP备2024118017号 </p>
+    <p>© 2023-2025 画风(huafeng)</p>
+    <p class="beian">
+      <img src="/Unknown.png" alt="工业和信息化部政务服务平台">
+      <a style="line-height:100%" href="https://beian.miit.gov.cn" target="_blank">鲁ICP备2024118017号</a>
+    </p>
   </div>
 </template>
 
@@ -610,9 +613,12 @@ const checkDeviceType = () => {
   text-align: center;
   color: var(--elementColor);
   font-size: 0.9em;
-  
-  p {
-    margin: 5px 0;
+  border-top: var(--systemColor) 1px solid;
+  .beian{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
   }
 }
 </style>
