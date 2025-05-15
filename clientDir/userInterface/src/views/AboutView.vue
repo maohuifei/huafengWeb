@@ -28,14 +28,14 @@
             <p>
                 位于东经119°30′～121°00′、北纬35°35′～37°09′，全市总面积为11293平方千米
             </p>
-          
+
         </div>
         <div class="content_section">
             <h2>联系方式</h2>
             <div class="contact_list">
                 <a href="mailto:jzwbuer@163.com" class="contact_item">
-                    <svg class="icon" aria-hidden="true">
-                        <use href="#icon-youjian"></use>
+                    <svg class="icon" aria-hidden="true" >
+                        <use href="#icon-weibiaoti554"></use>
                     </svg>
                     <span>Email</span>
                 </a>
@@ -47,7 +47,7 @@
                 </a>
                 <div class="contact_item qrcode-container">
                     <svg class="icon" aria-hidden="true">
-                        <use href="#icon-weixin"></use>
+                        <use href="#icon-weixin1"></use>
                     </svg>
                     <span>WeChat</span>
                     <div class="qrcode">
@@ -60,7 +60,7 @@
                     </svg>
                     <span>X</span>
                 </div>
-                
+
             </div>
         </div>
         <div class="content_section">
@@ -68,7 +68,7 @@
             <div class="project_cards">
                 <div class="project_card">
                     <svg class="project_icon" aria-hidden="true">
-                        <use href="#icon-youjian"></use>
+                        <use href="#icon-xiangmu"></use>
                     </svg>
                     <h3>huafengWeb</h3>
                     <p>本站github开源地址，欢迎访问</p>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="project_card">
                     <svg class="project_icon" aria-hidden="true">
-                        <use href="#icon-youjian"></use>
+                        <use href="#icon-xiangmu"></use>
                     </svg>
                     <h3>青岛市北不可移动文物巡查</h3>
                     <p>该项目旨在对青岛市北区的不可移动文物进行巡查和保护，确保文化遗产的安全。</p>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="project_card">
                     <svg class="project_icon" aria-hidden="true">
-                        <use href="#icon-youjian"></use>
+                        <use href="#icon-xiangmu"></use>
                     </svg>
                     <h3>青岛自贸人才港</h3>
                     <p>青岛自贸人才港项目致力于吸引和培养高端人才，推动区域经济发展。</p>
@@ -109,7 +109,7 @@ const router = useRouter()
 
 // 处理联系方式点击
 const XClick = () => {
-  router.push('/maintenance')
+    router.push('/maintenance')
 }
 </script>
 
@@ -156,12 +156,12 @@ const XClick = () => {
         padding: 35px;
         background: white;
         border-radius: 15px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         transition: all 0.4s ease;
 
         &:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
         }
 
         h2 {
@@ -246,13 +246,29 @@ const XClick = () => {
                 text-align: center;
                 background: white;
                 border-radius: 15px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
                 transition: all 0.4s ease;
                 padding: 30px;
+                height: 100%;
+                position: relative;
+
+                .project_link {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    background: var(--systemColor);
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 8px;
+                    transition: all 0.4s ease;
+                    margin: auto auto 0 auto;
+                    align-self: flex-end;
+                    width: 40%;
+                    text-align: center;
+                }
 
                 &:hover {
                     transform: translateY(-8px);
-                    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
                 }
 
                 .project_icon {
@@ -320,8 +336,8 @@ const XClick = () => {
                 }
 
                 &:hover {
-                    background: var(--systemColor);
                     color: white;
+                    background-color: black;
                 }
 
                 &.qrcode-container {
@@ -333,7 +349,7 @@ const XClick = () => {
                         background: white;
                         padding: 10px;
                         border-radius: 8px;
-                        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
                         transition: all 0.3s ease;
                         opacity: 0;
                         z-index: 100;

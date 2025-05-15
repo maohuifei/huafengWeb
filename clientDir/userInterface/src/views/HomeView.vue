@@ -12,22 +12,22 @@
 <template>
     <div class="home_box">
         <div class="web_introduction_box">
-            <h1 style="font-size: 50px;">欢迎来到HuaFeng，我的在线知识库</h1>
-            <p>
+            <h1 style="font-size: 50px;" class="welcome-title">欢迎来到HuaFeng，我的在线知识库</h1>
+            <p class="welcome-text">
                 这个网站是我个人学习、生活感悟及技术实践的记录空间，并非公开宣传的站点
             </p>
-            <p>
+            <p class="welcome-text">
                 如果你偶然间访问到了这里，那或许就是一种奇妙的缘分
             </p>
-            <h2>
+            <h2 class="welcome-text">
                 网站设计遵循
                 <span class="significant">"更简单、更纯粹"</span>
                 的原则
             </h2>
-            <p>
+            <p class="welcome-text">
                 它包含了我的思想理念，记录了我的成长轨迹，也见证了我与众多先行者思想的碰撞与共鸣
             </p>
-            <p>
+            <p class="welcome-text">
                 对于意外到访的你，如果有任何建议或想法，欢迎通过关于界面的联系方式与我沟通
             </p>
         </div>
@@ -65,47 +65,22 @@
 
         <div class="technique_box">
             <h1>网站技术</h1>
-            <!--全局-->
-            <div class="card_box">
-                <a v-for="(item, index) in overallList" 
-                   :key="index" 
-                   :href="item.url" 
-                   target="_blank" 
-                   class="card_class">
-                    <svg class="icon technique_icon" aria-hidden="true">
-                        <use :href=item.icon></use>
-                    </svg>
-                    <p>{{ item.name }}</p>
-                    <p>{{ item.versions }}</p>
-                </a>
-            </div>
-            <!--后端-->
-            <div class="card_box">
-                <a v-for="(item, index) in serverList" 
-                   :key="index" 
-                   :href="item.url" 
-                   target="_blank" 
-                   class="card_class">
-                    <svg class="icon technique_icon" aria-hidden="true">
-                        <use :href=item.icon></use>
-                    </svg>
-                    <p>{{ item.name }}</p>
-                    <p>{{ item.versions }}</p>
-                </a>
-            </div>
-            <!--前端-->
-            <div class="card_box">
-                <a v-for="(item, index) in clientList" 
-                   :key="index" 
-                   :href="item.url" 
-                   target="_blank" 
-                   class="card_class">
-                    <svg class="icon technique_icon" aria-hidden="true">
-                        <use :href=item.icon></use>
-                    </svg>
-                    <p>{{ item.name }}</p>
-                    <p>{{ item.versions }}</p>
-                </a>
+            <div class="marquee-container">
+                <div class="marquee-track" 
+                     @mouseenter="pauseMarquee" 
+                     @mouseleave="resumeMarquee">
+                    <a v-for="(item, index) in [...overallList, ...serverList, ...clientList]" 
+                       :key="index" 
+                       :href="item.url" 
+                       target="_blank" 
+                       class="card_class">
+                        <svg class="icon technique_icon" aria-hidden="true">
+                            <use :href="item.icon"></use>
+                        </svg>
+                        <p>{{ item.name }}</p>
+                        <p>{{ item.versions }}</p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -294,6 +269,20 @@ export default {
             })
         }
 
+        const pauseMarquee = () => {
+            const track = document.querySelector<HTMLElement>('.marquee-track')
+            if (track) {
+                track.style.animationPlayState = 'paused'
+            }
+        }
+
+        const resumeMarquee = () => {
+            const track = document.querySelector<HTMLElement>('.marquee-track')
+            if (track) {
+                track.style.animationPlayState = 'running'
+            }
+        }
+
         return {
             overallList,
             serverList,
@@ -305,7 +294,9 @@ export default {
             abstractBoxes,
             abstractContainers,
             isViewMoreLoading,
-            viewMoreArticles
+            viewMoreArticles,
+            pauseMarquee,
+            resumeMarquee
         }
     }
 }
@@ -364,6 +355,28 @@ export default {
         padding-top: 0;
         justify-content: flex-start;
         padding-top: 15vh;
+
+        .welcome-title {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .welcome-text {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            
+            &:nth-child(2) { animation-delay: 0.5s; }
+            &:nth-child(3) { animation-delay: 0.7s; }
+            &:nth-child(4) { animation-delay: 0.9s; }
+            &:nth-child(5) { animation-delay: 1.1s; }
+            &:nth-child(6) { animation-delay: 1.3s; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     }
 
     .my_introduction_box,
@@ -646,60 +659,75 @@ export default {
             margin-bottom: 40px;
         }
 
-        .card_box {
-            display: flex;
-            flex-wrap: wrap;
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 20px;
+        }
+
+        .marquee-track {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+
+        .card_class {
+            display: inline-flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
+            align-items: center;
+            border: 1px solid var(--systemColor);
+            padding: 20px;
+            width: 150px;
+            height: 180px;
+            background: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            margin-right: 20px;
 
-            .card_class {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                border: 1px solid var(--systemColor);
-                padding: 20px;
-                width: 150px;
-                height: 180px;
-                background: white;
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .technique_icon {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 15px;
                 transition: all 0.3s ease;
-                text-decoration: none;
-                color: inherit;
-                cursor: pointer;
+                fill: var(--systemColor);
+            }
 
-                &:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            &:hover .technique_icon {
+                transform: scale(1.1);
+            }
+
+            p {
+                margin: 5px 0;
+                font-size: 1em;
+
+                &:first-of-type {
+                    font-weight: bold;
+                    color: var(--systemColor);
                 }
 
-                .technique_icon {
-                    width: 70px;
-                    height: 70px;
-                    margin-bottom: 15px;
-                    transition: all 0.3s ease;
-                    fill: var(--systemColor);
-                }
-
-                &:hover .technique_icon {
-                    transform: scale(1.1);
-                }
-
-                p {
-                    margin: 5px 0;
-                    font-size: 1em;
-
-                    &:first-of-type {
-                        font-weight: bold;
-                        color: var(--systemColor);
-                    }
-
-                    &:last-of-type {
-                        font-size: 0.9em;
-                        color: #666;
-                    }
+                &:last-of-type {
+                    font-size: 0.9em;
+                    color: #666;
                 }
             }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            40% { transform: translateX(-25%); }
+            50% { transform: translateX(-25%); }  // 暂停1秒 (50%-40%=10% of 10s)
+            90% { transform: translateX(0); }
+            100% { transform: translateX(0); }    // 暂停1秒 (100%-90%=10% of 10s)
         }
     }
 }
